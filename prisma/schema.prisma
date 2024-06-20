@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:9810684778@localhost:5432/mydb?schema=public"
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
+  password  String
+  firstName String
+  lastName  String
+  createdAt DateTime   @default(now())
+  bookings  Bookings[]
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Jobs {
+  id         Int      @id @default(autoincrement())
+  url        String
+  isComplete Boolean  @default(false)
+  status     String   @default("active")
+  jobType    Json
+  createdAt  DateTime @default(now())
+}
+
+model Trips {
+  id                   String   @id @unique
+  name                 String
+  nights               Int
+  days                 Int
+  destinationItinerary Json
+  images               Json
+  inclusions           Json
+  themes               Json
+  price                Int
+  destinationDetails   Json
+  detailedIntineary    Json
+  description          String
+  packageIteniary      Json
+  scrapedOn            DateTime @default(now())
+}
+
+model Flights {
+  id            Int      @id @default(autoincrement())
+  name          String
+  logo          String
+  from          String
+  to            String
+  departureTime String
+  arrivalTime   String
+  duration      String
+  scrappedOn    DateTime @default(now())
+  price         Int
+  jobId         Int
+}
+
+model Hotels {
+  id         Int      @id @default(autoincrement())
+  name       String
+  image      String
+  price      Int
+  jobId      Int
+  location   String
+  scrappedOn DateTime @default(now())
+}
+
+model Bookings {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  date          DateTime
+  bookingType   String
+  bookingTypeId String
+  userId        Int
+  totalAmount   Int
+  paymentIntent String   @unique
+  isCompleted   Boolean  @default(false)
+  user          User     @relation(fields: [userId], references: [id])
+}
