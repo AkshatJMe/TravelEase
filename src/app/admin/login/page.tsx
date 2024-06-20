@@ -11,18 +11,25 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useRouter } from "next/navigation";
+import { useAppStore } from "@/store";
+import { apiClient } from "@/lib";
+import { ADMIN_API_ROUTES } from "@/utils/api-routes";
 
 const Login = () => {
-  // const { setUserInfo } = useAppStore();
+  const router = useRouter();
+  const { setUserInfo } = useAppStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLogin = async () => {
-    console.log("I will implement myself");
-    console.log(email, password);
-    // if (response.data.userInfo) {
-    //   setUserInfo(response.data.userInfo);
-    //   router.push("/admin");
-    // }
+    const response = await apiClient.post(ADMIN_API_ROUTES.LOGIN, {
+      email,
+      password,
+    });
+    if (response.data.userInfo) {
+      setUserInfo(response.data.userInfo);
+      router.push("/admin");
+    }
   };
 
   return (
