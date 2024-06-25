@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const router = useRouter();
   return (
-    <nav className="bg-[#0E1428] p-4">
+    <nav className="bg-[#0E1428] p-4 rounded-xl">
       <div className="container mx-auto flex justify-between items-center">
         <button
           onClick={() => router.push("/")}

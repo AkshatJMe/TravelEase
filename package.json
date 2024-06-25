@@ -9,6 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/button": "^2.0.34",
+    "@nextui-org/card": "^2.0.31",
+    "@nextui-org/listbox": "^2.1.22",
+    "@nextui-org/react": "^2.4.2",
+    "@nextui-org/system": "^2.2.2",
+    "@nextui-org/tabs": "^2.0.32",
+    "@nextui-org/theme": "^2.2.6",
     "@prisma/client": "^5.15.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-select": "^2.1.0",
@@ -18,6 +25,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
+    "framer-motion": "^11.2.11",
     "jose": "^5.4.1",
     "lucide-react": "^0.395.0",
     "next": "14.2.3",
