@@ -16,7 +16,7 @@ import ScrapingQueue from "@/components/admin/scraping-queue/scraping-queue";
 import { apiClient } from "@/lib";
 import { ADMIN_API_ROUTES } from "@/utils/api-routes";
 
-const ScrapeData = () => {
+const ScrapeTrips = () => {
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState<undefined | string>(
     undefined
@@ -130,4 +130,4 @@ const ScrapeData = () => {
   );
 };
 
-export default ScrapeData;
+export default ScrapeTrips;
