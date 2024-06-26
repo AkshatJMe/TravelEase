@@ -15,7 +15,6 @@ export const register = async () => {
     const admin = await prisma.admin.count();
     console.log({ admin });
     if (!admin) {
-      console.log("in if");
       const data = await prisma.admin.create({
         data: {
           email: "admin@admin.com",
@@ -34,17 +33,16 @@ export const register = async () => {
     new Worker(
       "importQueue",
       async (job) => {
-        console.log(process.env);
         console.log("Connecting to Scraping Browser...", SBR_WS_ENDPOINT);
         const browser = await puppeteer.connect({
           browserWSEndpoint: SBR_WS_ENDPOINT,
         });
-        console.log(job.data);
+        console.log(job.data.url);
         try {
           const page = await browser.newPage();
           if (job.data.jobType.type === "location") {
             console.log("Connected! Navigating to " + job.data.url);
-            await page.goto(job.data.url);
+            await page.goto(job.data.url, { timeout: 600000 });
             console.log("Navigated! Scraping page content...");
             const packages = await startLocationScraping(page);
             await prisma.jobs.update({
@@ -147,7 +145,7 @@ export const register = async () => {
             console.log("COMPLETE.");
           }
         } catch (error) {
-          console.log({ error });
+          console.log("me to error hu bhai");
           await prisma.jobs.update({
             where: { id: job.data.id },
             data: { isComplete: true, status: "failed" },
