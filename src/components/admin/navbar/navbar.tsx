@@ -53,6 +53,14 @@ const Navbar = () => {
               Scrape Data
             </button>
           </li>
+          <li>
+            <button
+              onClick={() => router.push("/admin/logout")}
+              className="text-white hover:text-gray-300"
+            >
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
     </nav>

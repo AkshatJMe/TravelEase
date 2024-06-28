@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { Providers } from "./providers";
 // import AppProtector from "./app-protector";
-import PageLayout from "./pageLayout";
+import PageLayout from "./PageLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {

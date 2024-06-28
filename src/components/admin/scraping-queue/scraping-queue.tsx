@@ -31,9 +31,11 @@ const ScrapingQueue = () => {
   };
 
   return (
-    <Card className="h-full">
-      <CardHeader className="text-center font-extrabold text-5xl">Current Queue</CardHeader>
-      <CardDescription className="flex items-center justify-center mt-16">
+    <Card className="h-full flex flex-col">
+      <CardHeader className="text-center font-extrabold text-5xl">
+        Current Queue
+      </CardHeader>
+      <CardDescription className="flex items-center justify-center mt-5">
         <div
           className={`h-52 w-52 ${onGoingJobColor()} rounded-full  flex items-center justify-center`}
         >

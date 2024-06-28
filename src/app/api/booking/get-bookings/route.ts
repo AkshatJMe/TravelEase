@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
     // Iterate over each booking to fetch additional details based on bookingType
     for (const booking of bookings) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+   
       // @ts-ignore
       delete booking.paymentIntent;
       switch (booking.bookingType) {
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
           const hotel = await prisma.hotels.findUnique({
             where: { id: parseInt(booking.bookingTypeId) },
           });
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+     
           // @ts-ignore
           booking.name = hotel ? hotel.name : null;
           break;
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
           const trip = await prisma.trips.findUnique({
             where: { id: booking.bookingTypeId },
           });
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+       
           // @ts-ignore
           booking.name = trip ? trip.name : null;
           break;
@@ -38,12 +38,11 @@ export async function POST(request: Request) {
           const flight = await prisma.flights.findUnique({
             where: { id: parseInt(booking.bookingTypeId) },
           });
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           booking.name = flight ? flight.name : null;
           break;
         default:
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+       
           // @ts-ignore
           booking.name = null;
       }

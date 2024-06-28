@@ -1,11 +1,14 @@
-import React from 'react'
+import { cookies } from "next/headers";
+import React from "react";
+import Actions from "./actions";
 
-const Logout = () => {
-  return (
-    <div>
-      Logout
-    </div>
-  )
-}
+const Page = () => {
+  async function deleteCookie() {
+    "use server";
+    cookies().delete("access_token");
+  }
 
-export default Logout
+  return <Actions deleteCookie={deleteCookie} />;
+};
+
+export default Page;
