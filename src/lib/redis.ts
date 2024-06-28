@@ -1,17 +1,8 @@
+import Redis from "ioredis";
+
 // You can get the REDIS_URL from your environment variables
-import { Redis } from "ioredis";
+const REDIS_URL = process.env.REDIS_URL || "";
 
-const host = process.env.HOST;
-const pass = process.env.PASSWORD;
-
-const connection = new Redis({
-  port: 13665, // Redis port
-  host: host, // Redis host
-  username: "default", // needs Redis >= 6
-  password: pass,
-  db: 0, // Defaults to 0
-
-  maxRetriesPerRequest: null,
-});
+const connection = new Redis(REDIS_URL);
 
 export { connection };
