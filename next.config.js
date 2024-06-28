@@ -4,8 +4,8 @@ const nextConfig = {
     instrumentationHook: true,
   },
   env: {
-    NEXT_PUBLIC_STRIPE_PUBLIC_KEY: "pk_test_xeqIPdYS2PpKbHmKG4gJqpde",
-    NEXT_PUBLIC_APTIBLE_DOMAIN: "https://app-66707.on-aptible.com",
+    NEXT_PUBLIC_STRIPE_PUBLIC_KEY: process.env.SBR_WS_ENDPOINT,
+    NEXT_PUBLIC_APTIBLE_DOMAIN: process.env.PUBLIC,
   },
   images: {
     remotePatterns: [
