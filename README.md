@@ -44,4 +44,4 @@ Start the server
 
 ## ProjectUML
 
-<img width='100%' src='https://github.com/HiAkshatJain/WebScraping/webscraping.png' />
+<img width='100%' src='https://github.com/HiAkshatJain/WebScraping/blob/main/webScraping.png' />
