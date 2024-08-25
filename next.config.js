@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    instrumentationHook: true,
+    instrumentationHook: false,
   },
   env: {
     NEXT_PUBLIC_STRIPE_PUBLIC_KEY: process.env.SBR_WS_ENDPOINT,
