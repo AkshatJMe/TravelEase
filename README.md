@@ -35,4 +35,4 @@ This project is a full-stack application built with modern technologies:
 
 ## Schema
 
-<img width='100%' src='https://github.com/HiAkshatJain/TravelEase/blob/main/schema.png' />
+<img width='100%' src='https://github.com/AkshatJMe/TravelEase/blob/main/schema.png' />
